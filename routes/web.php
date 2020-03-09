@@ -31,3 +31,9 @@ Route::get('/p/{post}','PostsController@show'); //id bta3 el post
 Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.patch');
+
+
+Route::get('test' , function(){
+    $user = App\User::find(1);
+    Mail::to($user->email)->send(new NewUserWelcome());
+});

@@ -28,6 +28,6 @@ class NewUserWelcome extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.welcome-email');
+        return $this->markdown('emails.welcome-email')->from(env('MAIL_FROM_ADDRESS', 'test@test.com'));
     }
 }
